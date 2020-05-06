@@ -1,0 +1,14 @@
+<h1>Edit project and users</h1>
+<%= form_with model: @proj, local: true do |form| %>
+<p>
+	<%= form.label "User Id" %>
+	<%= form.text_field :user_id %>
+</p>
+<p>
+	<%= form.label "Project Id" %>
+	<%= form.text_field :projectt_id %>
+</p>
+<p>
+	<%= form.submit %>
+</p>
+<% end %>

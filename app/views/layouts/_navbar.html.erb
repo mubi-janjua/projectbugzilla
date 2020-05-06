@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light"  class="nav">
+  <%= image_tag("log.png", class: "navbar-brand") %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+    <strong><%= current_user.name if user_signed_in?  %></strong>|
+    <strong><%= current_user.user_type if user_signed_in?%></strong><br/>
+      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">
+               <% if user_signed_in? %>
+         <%= link_to 'sign out', destroy_user_session_path, method: :delete, class: "signout btn btn-outline-primary"%>
+         <%end%>
+      </button>
+    </form>
+  </div>
+</nav>

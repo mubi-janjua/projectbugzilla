@@ -1,0 +1,46 @@
+<br/>
+<div class="container mycontainer">
+    <% if current_user.user_type == "manager" %>
+        <%= link_to "Create Project",    new_user_projectt_path(current_user),class: "btn btn-outline-primary" %><br/><br/>
+    <%end%>
+	<div class="table-responsive">
+  		<table class="table">
+  			<tr>
+  				<th>ID</th>
+  				<th>NAME</th>
+  				<th>Manager Name</th>
+  			</tr>
+  			<% @projects.each do |f| %>
+  				<tr>
+  					<td><%= f.id %></td>
+  					<td><%= f.name %></td>
+  					<td><%= f.users.select{|a| a.user_type=="manager"}.pluck(:name).join(',') %></td>
+            <td>
+                <%= link_to user_projectt_path(current_user,f) do%>
+                <%= fa_icon "eye 2x"%>
+                <%end%>
+            </td>
+            <% if current_user.user_type =="qa" || current_user.user_type == "developer" %>
+  					<td>
+              <%= link_to  user_projectt_bugs_path(current_user,f) do%>
+              <%= fa_icon "bug 2x" %>
+              <%end%>
+            </td>
+            <%end%>
+  				  <% if current_user.user_type == "manager" %>
+  							<td>
+                  <%= link_to user_projectt_path(current_user,f) , method: :delete, data: {confirm: "are you sure?"}   do%>
+                  <%= fa_icon "trash 2x" %>
+                   <%end%>
+                </td>
+  							<td>
+                  <%= link_to user_projectt_show_user_path(current_user.id, f.id) do%>
+                  <%= fa_icon "user-plus 2x" %>
+                  <%end%>
+                </td>
+  					<% end %>
+  			  </tr>
+  			<%end%>
+  		</table>
+	</div>
+</div>

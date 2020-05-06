@@ -1,0 +1,37 @@
+<div class="container">
+<h1>SHOW ALL BUG</h1>
+<div class="table-responsive">
+<table class="table tb" >
+  <tr>
+    <th>ID</th>
+    <th>TITLE</th>
+    <th>DEADLINE</th>
+    <th>TYPE</th>
+    <th>STATUS</th>
+  </tr>
+
+  <% @bugs.each do |bug| %>
+
+  <tr>
+    <th><%= bug.id %></th>
+    <td><%= bug.title %></td>
+    <td><%= bug.deadline %></td>
+    <td><%= bug.typed %></td>
+    <td><%= bug.status %></td>
+    <% if current_user.user_type == "qa" %>
+    <td>
+      <%= link_to  user_projectt_bug_path(current_user,@project,bug) do%>
+      <%= fa_icon "eye 2x" %>
+      <%end%>
+    </td>
+    <td><%= link_to user_projectt_bug_path(current_user,@project,bug), method: :delete, data:{confirm: "are you sure?"} do%>
+      <%= fa_icon "trash 2x" %>
+      <%end%>
+    </td>
+  </tr>
+  <%end%>
+  <%end%>
+</div>
+</table>
+</div>
+

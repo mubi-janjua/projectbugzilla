@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>show all the user</h1>
+  <div class="table-responsive">
+    <table class="table">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>User Type</th>
+      </tr>
+      <% @users.each do |user| %>
+        <tr>
+
+            <td><%= user.id %></td>
+            <td><%= user.name %></td>
+            <td><%= user.user_type %></td>
+          <% if @project_users_ids.include?(user.id) %>
+            <td><%= link_to "Remove User", user_projectt_destroy_user_path(current_user.id, @project_id, user.id), method: :delete, class: "btn btn-danger" %></td>
+            <% else %>
+            <td><%= link_to "Add User", user_projectt_add_user_path(current_user.id, @project_id, user.id), class: "btn btn-primary"%></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

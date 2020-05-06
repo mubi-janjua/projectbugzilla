@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>SHOW-BUG</h1>
+    <div class="table-responsive">
+      <table class="table">
+        <tr>
+          <th>Title</th>
+          <th>Deadline</th>
+          <th>Type</th>
+          <th>Status</th>
+          <th>Image</th>
+        </tr>
+        <tr>
+          <td><%= @bug.title %></td>
+          <td><%= @bug.deadline %></td>
+          <td><%= @bug.typed %></td>
+          <td><%= @bug.status %></td>
+          <td><%= image_tag(@bug.image, style:"width:10%") %></td>
+          <td>  <%= link_to user_projectt_bug_show_user_path(current_user.id,@project.id,@bug.id)  do%>
+                <%= fa_icon "user-plus 2x" %>
+                <%end%>
+          </td>
+        </tr>
+      </table>
+    </div>
+</div>

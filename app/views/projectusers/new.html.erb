@@ -1,0 +1,14 @@
+<h1>projectUsers</h1>
+<%= form_for @proj, url: new_user_projectt_projectuser_path, local: true do |f| %>
+<p>
+    <%= f.label 'User Id' %>
+    <%= f.text_field :user_id %>
+</p>
+<p>
+	<%= f.label 'Project Id' %>
+	<%= f.text_field :projectt_id %> 
+</p>
+<p>
+	<%= f.submit %>
+</p>
+<% end %>

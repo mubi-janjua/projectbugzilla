@@ -1,0 +1,17 @@
+<h1>show all the user</h1>
+<table>
+	<tr>
+		<th>Id</th>
+		<th>Name</th>
+		<th>User Type</th>
+	</tr>
+	<% @users.each do |f| %>
+	<% if f.user_type == "developer" || f.user_type == "qa" %>
+		<tr>
+			<td><%= f.id %></td>
+			<td><%= f.name %></td>
+		  <td><%= f.user_type %></td>
+		</tr>
+	<% end %>
+	<% end %>
+</table>

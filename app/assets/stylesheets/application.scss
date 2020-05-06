@@ -1,0 +1,41 @@
+@import "/*";
+@import "bootstrap";
+@import "tether";
+@import "font-awesome";
+
+.mycontainer{
+  margin-right: 200%;
+}
+
+
+body{
+  font-color: red;
+  overflow: hidden;
+}
+.bg-light{
+  margin-inline-start: -6em;
+  margin-inline-end: -6em;
+}
+.eye{
+  width: 34%;
+
+}
+.del{
+  margin-right: 78%;
+}
+.one{
+  width: 5%;
+}
+.sh{
+  width: 13%;
+}
+.tb{
+    align-content: center;
+
+}
+.dl{
+  width:13%;
+}
+.navbar-brand{
+  width:12%;
+}

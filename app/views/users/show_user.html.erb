@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>Bug assigned user</h1>
+  <div class="table-responsive">
+    <table class="table">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>User Type</th>
+      </tr>
+
+      <% @users.each do |user| %>
+
+        <tr>
+
+            <td><%= user.id %></td>
+            <td><%= user.name %></td>
+            <td><%= user.user_type %></td>
+          <% if @bug.developer_id.present? %>
+          <td><%= link_to  "Remove user", user_projectt_bug_destroy_buguser_path(current_user.id, @project.id, @bug.id, user.id), method: :delete, class: "btn btn-danger"%></td>
+
+                <% else %>
+                 <td><%= link_to "assign bug", user_projectt_bug_add_buguser_path(current_user.id, @project.id, @bug.id, user.id), class: "btn btn-primary" %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

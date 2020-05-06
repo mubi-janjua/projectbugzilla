@@ -1,0 +1,45 @@
+<div class="container">
+  <h1>BUG CREATE</h1>
+  <div class="form-group">
+
+    <% if @bug.errors.any? %>
+        <ul>
+          <% @bug.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <%end%>
+        </ul>
+    <%end%>
+
+    <%= form_for @bug, url:  user_projectt_bugs_path, local: true  do |bug| %>
+
+      <p>
+        <%= bug.label :Title %>
+        <%= bug.text_field :title, class: "form-control"%>
+      </p>
+
+      <p>
+        <%= bug.label :Deadline %>
+        <%= bug.date_field :deadline, class: "form-control"%>
+      </p>
+
+      <p>
+        <%= bug.label :Type %>
+        <%= bug.text_field :typed, class: "form-control"%>
+      </p>
+
+      <p>
+        <%= bug.label :status %>
+        <%= bug.text_field :status, class: "form-control"%>
+      </p>
+
+      <p>
+        <%= bug.label :image %>
+        <%= bug.file_field :image, class: "form-control"%>
+      </p>
+
+      <p>
+        <%= bug.submit class: "btn btn-primary" %>
+      </p>
+    <%end%>
+  </div>
+</div>

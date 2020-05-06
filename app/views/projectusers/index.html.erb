@@ -1,0 +1,24 @@
+<h1>list of project and Users</h1>
+<table>
+	<tr>
+		<th>User name </th>
+		<th>User name</th>
+		<th>User Type</th>
+		<th>Project ID</th>
+		<th>Project Name</th>
+	</tr>
+	<% @projs.each do |f| %>
+	<tr>
+		<td><%= f.user.try(:id) %></td>
+	    <td><%= f.user.name %></td>
+		<td><%= f.user.user_type %></td>
+		<td><%= f.projectt.try(:id) %></td>
+		<td><%= f.projectt.name %></td>
+		<td><%= link_to 'Show',  user_projectt_projectuser_path(current_user,current_user,f) %></td>
+		<td><%= link_to "Edit", edit_user_projectt_projectuser_path(current_user,current_user,f)%></td>
+		<td><%= link_to "destroy", user_projectt_projectusers_path(current_user,current_user,f),
+		method: :delete, data: {confirm: "are you sure?"} %></td>
+	</tr>
+	<%end%>
+
+</table>

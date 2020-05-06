@@ -1,0 +1,31 @@
+<h1>BUG EDIT</h1>
+<%= form_for @bug do |bug| %>
+  <p>
+    <%= bug.label :Title %>
+    <%= bug.text_field :title %>
+  </p>
+
+  <p>
+    <%= bug.label :Deadline %>
+    <%= bug.datetime_field :deadline %>
+  </p>
+
+  <p>
+    <%= bug.label :Type %>
+    <%= bug.text_field :typed %>
+  </p>
+
+  <p>
+    <%= bug.label :status %>
+    <%= bug.text_field :status %>
+  </p>
+
+  <p>
+    <%= bug.label :image %>
+    <%= bug.file_field :image %>
+  </p>
+
+  <p>
+    <%= bug.submit %>
+  </p>
+<%end%>

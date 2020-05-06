@@ -1,0 +1,17 @@
+<div class="container">
+  <h2 class="all"><strong>Create New Project</strong></h2>
+  <div class="form-group">
+    <%= form_for @pro, url: user_projectts_path, local: true do |f| %>
+
+      <p>
+        <strong><%= f.label 'Project Name:' %></strong>
+        <%= f.text_field :name, class: "form-control"%>
+      </p>
+
+      <p>
+        <%= f.submit class: "btn btn-primary" %>
+      </p>
+
+    <% end %>
+  </div>
+</div>

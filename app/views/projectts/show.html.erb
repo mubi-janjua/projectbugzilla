@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Show Project</h1>
+  <div class="table-responsive">
+    <table class="table">
+      <tr>
+        <th>Name</th>
+      </tr>
+      <tr>
+        <td><%= @pro.name %></td>
+        <% if current_user.user_type == "qa" %>
+        <td><%= link_to "Report bug",  new_user_projectt_bug_path(current_user, @pro), class: "btn btn-primary" %></td>
+        <%end%>
+      </tr>
+    </table>
+  </div>
+</div>
+
